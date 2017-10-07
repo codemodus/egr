@@ -21,6 +21,10 @@ func main() {
 				os.Exit(1)
 			}
 
+			if len(expArgs) == 0 {
+				continue
+			}
+
 			args := make([]string, len(os.Args)-1+len(expArgs))
 			copy(args, os.Args[:i])
 			copy(args[i:], expArgs)
