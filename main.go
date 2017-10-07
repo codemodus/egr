@@ -32,7 +32,16 @@ func main() {
 		}
 	}
 
-	cmd := exec.Command(os.Args[1], os.Args[2:]...)
+	if len(os.Args) <= 1 {
+		return
+	}
+
+	var args []string
+	if len(os.Args) >= 3 {
+		args = os.Args[2:]
+	}
+
+	cmd := exec.Command(os.Args[1], args...)
 
 	b1 := &bytes.Buffer{}
 	b2 := &bytes.Buffer{}
